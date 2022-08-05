@@ -1,0 +1,7 @@
+.curseclient
+usercache.json
+usernamecache.json
+backups/*
+local/*
+logs/*
+saves/*
