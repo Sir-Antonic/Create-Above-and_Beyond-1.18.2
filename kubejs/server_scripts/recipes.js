@@ -1182,9 +1182,7 @@ function barrels(event) {
 //Commented out enitre Advanced Rocketry section due to it not being updated and needing a replacement
 
 function drawersop(event) {
-    let drawer_types = ['oak', 'spruce', 'birch', 'jungle', 'acacia', 'dark_oak', 'crimson'.
-        'warped'
-    ]
+    let drawer_types = ['oak', 'spruce', 'birch', 'jungle', 'acacia', 'dark_oak', 'crimson', 'warped']
     let drawer_sizes = ['1', '2', '4']
     event.replaceInput({ id: SD('compacting_drawers_3') }, MC('iron_ingot'), CR('zinc_ingot'))
     event.remove({ output: SD("upgrade_template") })
