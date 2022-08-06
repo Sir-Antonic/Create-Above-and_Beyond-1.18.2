@@ -1,3 +1,30 @@
+// Mod shortcuts
+let MOD = (domain, id, x) => (x ? `${x}x ` : "") + (id.startsWith('#') ? '#' : "") + domain + ":" + id.replace('#', '')
+let AE2 = (id, x) => MOD("ae2", id, x)
+let TE = (id, x) => MOD("thermal", id, x)
+let AP = (id, x) => MOD("architects_palette", id, x)
+    //let LV = (id, x) => MOD("libvulpes", id, x)
+let CR = (id, x) => MOD("create", id, x)
+let TC = (id, x) => MOD("tconstruct", id, x)
+let MC = (id, x) => MOD("minecraft", id, x)
+let KJ = (id, x) => MOD("kubejs", id, x)
+    //let EG = (id, x) => MOD("endergetic", id, x)
+let EP = (id, x) => MOD("phantasm", id, x)
+let FD = (id, x) => MOD("farmersdelight", id, x)
+let BOP = (id, x) => MOD("biomesoplenty", id, x)
+    //let PR_C = (id, x) => MOD("projectred-core", id, x)
+    //let PR_T = (id, x) => MOD("projectred-transmission", id, x)
+    //let PR_I = (id, x) => MOD("projectred-illumination", id, x)
+let BP = (id, x) => MOD("bluepower", id, x)
+let RQ = (id, x) => MOD("reliquary", id, x)
+let SD = (id, x) => MOD("storagedrawers", id, x)
+let SP = (id, x) => MOD("supplementaries", id, x)
+let F = (id, x) => MOD("forge", id, x)
+let AC = (id, x) => MOD("aquaculture", id, x)
+let PP = (id, x) => MOD("prettypipes", id, x)
+let OC = (id, x) => MOD("occultism", id, x)
+    //Commented out mods that are not updated 08/05/2022
+
 let metal_ores_drop_dust = (id, dust_id) => ({
     "type": "minecraft:block",
     "pools": [{
