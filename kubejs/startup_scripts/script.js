@@ -23,7 +23,7 @@ onEvent('item.registry', event => {
     event.create('nickel_compound').texture("kubejs:item/nickel_compound").displayName('Nickel Compound')
     event.create('pipe_module_utility').texture("kubejs:item/pipe_module_utility").displayName('Utility Pipe Module')
     event.create('pipe_module_utility_tier_1').texture("kubejs:item/pipe_module_utility_tier_1").displayName('Brass Pipe Module')
-    event.create('pipe_module_utility_tier_2').texture("kubejs:pipe_module_utility_tier_2").displayName('Invar Pipe Module')
+    event.create('pipe_module_utility_tier_2').texture("kubejs:item/pipe_module_utility_tier_2").displayName('Invar Pipe Module')
     event.create('pipe_module_utility_tier_3').texture("kubejs:item/pipe_module_utility_tier_3").displayName('Enderium Pipe Module')
     event.create('plus_cast').texture("kubejs:item/plus_cast").displayName('Operator Cast (+)').unstackable()
     event.create('purified_sand').texture("kubejs:item/purified_sand").displayName('Purified Sand')

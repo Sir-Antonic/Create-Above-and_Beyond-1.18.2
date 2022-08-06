@@ -148,7 +148,7 @@ onEvent('item.tags', event => {
         .add(OC("#miners/ores"))
         //.add(PR_C("draw_plate"))
         //.add(PR_C("multimeter"))
-        .add(BP("draw_plate"))
+        .add(BP("diamond_drawplate"))
         .add(BP("multimeter"))
         //Commented out mods that are not updated/replaced 08/05/2022
 
@@ -204,7 +204,7 @@ onEvent('item.tags', event => {
         .add(/forbidden_arcanus:edelwood.*/)
         .add(/curios.*/)
         //.add(/metalbarrels.*/)
-        .add("forbidden_arcanus:arcane_dark_stone")
+        .add("forbidden_arcanus:arcane_chiseled_darkstone")
         .add("#forge:dusts")
         //.add("cb_microblock:microblock")
         .add("culinaryconstruct:sandwich")
@@ -213,7 +213,7 @@ onEvent('item.tags', event => {
         .add("randomium:randomium")
         .add("portality:generator")
         .add("kubejs:alchemical_laser")
-        .add("kubejs:ponder_laser_lamp")
+        //.add("kubejs:ponder_laser_lamp")
         .add("chiselsandbits:block_bit")
         .add("moreminecarts:chunk_loader")
         .add("moreminecarts:minecart_with_chunk_loader")
@@ -230,34 +230,36 @@ onEvent('item.tags', event => {
     // Chisel mod replaced with Rechiseled till update
 
     event.get('rechiseled:basalt').add('expcaves:lavastone').add('expcaves:polished_lavastone')
-    event.get('rechiseled:limestone').add('expcaves:sedimentstone').add('darkerdepths:limestone').add('darkerdepths:aridrock')
+    event.get('rechiseled:limestone').add('expcaves:sediment_stone').add('darkerdepths:limestone').add('darkerdepths:aridrock')
 
-    let stones = ["limestone", "dolomite"]
-    stones.forEach(e => {
-        event.get(e == "dolomite" ? "chisel:marble" : 'chisel:' + e)
-            .add(CR(`${e}`))
-            .add(CR(`polished_${e}`))
-            .add(CR(`${e}_bricks`))
-            .add(CR(`fancy_${e}_bricks`))
-            .add(CR(`${e}_pillar`))
-            .add(CR(`paved_${e}`))
-            .add(CR(`layered_${e}`))
-            .add(CR(`chiseled_${e}`))
-            .add(CR(`mossy_${e}`))
-            .add(CR(`overgrown_${e}`))
-    })
+    //let stones = ["limestone", "dolomite"]
+    //stones.forEach(e => {
+    //event.get(e == "dolomite" ? "chisel:marble" : 'chisel:' + e)
+    //.add(CR(`${e}`))
+    //.add(CR(`polished_cut_${e}`))
+    //.add(CR(`cut_${e}_bricks`))
+    //.add(CR(`small_${e}_bricks`))
+    //.add(CR(`${e}_pillar`))
+    //.add(CR(`paved_${e}`))
+    //.add(CR(`layered_${e}`))
+    //.add(CR(`chiseled_${e}`))
+    //.add(CR(`mossy_${e}`))
+    //.add(CR(`overgrown_${e}`))
+    //})
 
-    let v_stones = ["andesite", "diorite", "granite"]
-    v_stones.forEach(e => {
-        event.get('chisel:' + e)
-            .add(CR(`${e}_bricks`))
-            .add(CR(`fancy_${e}_bricks`))
-            .add(CR(`${e}_pillar`))
-            .add(CR(`paved_${e}`))
-            .add(CR(`layered_${e}`))
-            .add(CR(`mossy_${e}`))
-            .add(CR(`overgrown_${e}`))
-    })
+    //let v_stones = ["andesite", "diorite", "granite"]
+    //v_stones.forEach(e => {
+    //event.get('chisel:' + e)
+    //.add(CR(`polished_cut_${e}`))
+    //.add(CR(`cut_${e}_bricks`))
+    //.add(CR(`small_${e}_bricks`))
+    //.add(CR(`${e}_pillar`))
+    //.add(CR(`paved_${e}`))
+    //.add(CR(`layered_${e}`))
+    //.add(CR(`mossy_${e}`))
+    //.add(CR(`overgrown_${e}`))
+    //})
+    //Getting errors due to dolomite not being present
 
     event.get("forge:treasure1")
         .add(MC('cobweb'))
@@ -310,7 +312,7 @@ onEvent('item.tags', event => {
         .add(FD('tomato_seeds'))
         .add(MC('scute'))
         .add(MC('iron_ingot'))
-        .add(CR('copper_ingot'))
+        .add(MC('copper_ingot'))
         .add(CR('zinc_ingot'))
         .add(TE('rosin'))
         .add(MC('spider_eye'))
@@ -511,12 +513,12 @@ function tweaks(event) {
     event.remove({ id: FD("iron_knife") })
     event.remove({ id: FD("golden_knife") })
     event.remove({ id: FD("diamond_knife") })
-    event.remove({ id: "buddycards:fd/buddysteel_food_knife" })
+        //event.remove({ id: "buddycards:fd/buddysteel_food_knife" })
     event.shaped(FD('flint_knife'), ['S ', ' M'], { M: MC("flint"), S: F('#rods/wooden') })
     event.shaped(FD('iron_knife'), ['S ', ' M'], { M: MC("iron_ingot"), S: F('#rods/wooden') })
     event.shaped(FD('golden_knife'), ['S ', ' M'], { M: MC("gold_ingot"), S: F('#rods/wooden') })
     event.shaped(FD('diamond_knife'), ['S ', ' M'], { M: MC("diamond"), S: F('#rods/wooden') })
-    event.shaped("buddycards:buddysteel_food_knife", ['S ', ' M'], { M: "buddycards:buddysteel_ingot", S: F('#rods/wooden') })
+        //event.shaped("buddycards:buddysteel_food_knife", ['S ', ' M'], { M: "buddycards:buddysteel_ingot", S: F('#rods/wooden') })
 
     event.remove({ id: "decorative_blocks:lattice" })
     event.shaped("decorative_blocks:lattice", [
@@ -864,9 +866,9 @@ function tweaks(event) {
     cast("nugget", TC("molten_silver"), 16, TE("silver_nugget"), 17)
     cast_block(TC("molten_silver"), TE("silver_block"))
 
-    cast("ingot", TC("molten_copper"), 144, CR("copper_ingot"), 50)
+    cast("ingot", TC("molten_copper"), 144, MC("copper_ingot"), 50)
     cast("nugget", TC("molten_copper"), 16, CR("copper_nugget"), 17)
-    cast_block(TC("molten_copper"), CR("copper_block"))
+    cast_block(TC("molten_copper"), MC("copper_block"))
 
 
     event.custom({
@@ -1222,7 +1224,7 @@ function unify(event) {
 
     event.recipes.createMilling(TE("nickel_dust"), TE("nickel_ingot"))
     event.recipes.createMilling(TE("lead_dust"), TE("lead_ingot"))
-    event.recipes.createMilling(TE("copper_dust"), CR("copper_ingot"))
+    event.recipes.createMilling(TE("copper_dust"), MC("copper_ingot"))
     event.recipes.createMilling(KJ("zinc_dust"), CR("zinc_ingot"))
 
     event.replaceInput({ id: OC("ritual/summon_djinni_crusher") }, '#forge:dusts/silver', KJ('zinc_dust'))
@@ -1253,16 +1255,16 @@ function unify(event) {
     event.replaceInput({}, '#forge:dusts/iron', TE('iron_dust'))
     event.replaceInput({}, '#forge:dusts/copper', TE('copper_dust'))
     event.replaceInput({}, '#forge:plates/copper', CR('copper_sheet'))
-    event.replaceInput({}, '#forge:ingots/copper', CR('copper_ingot'))
-    event.replaceOutput({}, '#forge:ingots/copper', CR('copper_ingot'))
+    event.replaceInput({}, '#forge:ingots/copper', MC('copper_ingot'))
+    event.replaceOutput({}, '#forge:ingots/copper', MC('copper_ingot'))
     event.replaceInput({}, '#forge:nuggets/copper', CR('copper_nugget'))
     event.replaceOutput({}, '#forge:nuggets/copper', CR('copper_nugget'))
     event.replaceOutput({}, '#forge:ores/copper', CR('copper_ore'))
     event.replaceOutput({}, '#forge:nuggets/silver', TE('silver_nugget'))
     event.replaceOutput({}, '#forge:ingots/silver', TE('silver_ingot'))
     event.replaceOutput({}, '#forge:storage_blocks/silver', TE('silver_block'))
-    event.replaceInput({}, '#forge:storage_blocks/copper', CR('copper_block'))
-    event.replaceOutput({}, '#forge:storage_blocks/copper', CR('copper_block'))
+    event.replaceInput({}, '#forge:storage_blocks/copper', MC('copper_block'))
+    event.replaceOutput({}, '#forge:storage_blocks/copper', MC('copper_block'))
     event.replaceInput({}, '#forge:gems/ruby', TE('ruby'))
     event.replaceInput({}, '#forge:gems/sapphire', TE('sapphire'))
         //event.replaceInput({ id: "exchangers:thermal/thermal_exchanger_core_tier1" }, TE('ender_pearl_dust'), AE2('ender_dust'))
@@ -1521,7 +1523,7 @@ function oreProcessing(event) {
     dust_process('lead', TE('lead_ingot'), TE('lead_nugget'), TE('lead_dust'), TE('lead_ore'), MC('iron_nugget'), 'iron')
     dust_process('iron', MC('iron_ingot'), MC('iron_nugget'), TE('iron_dust'), MC('iron_ore'), TE('nickel_nugget'), 'nickel')
     dust_process('gold', MC('gold_ingot'), MC('gold_nugget'), TE('gold_dust'), MC('gold_ore'), TE('cinnabar'), 'zinc')
-    dust_process('copper', CR('copper_ingot'), CR('copper_nugget'), TE('copper_dust'), CR('copper_ore'), MC('gold_nugget'), 'gold')
+    dust_process('copper', MC('copper_ingot'), CR('copper_nugget'), TE('copper_dust'), CR('copper_ore'), MC('gold_nugget'), 'gold')
     dust_process('zinc', CR('zinc_ingot'), CR('zinc_nugget'), KJ('zinc_dust'), CR('zinc_ore'), TE('sulfur'), 'lead')
 
     event.replaceInput({ id: TE("machine/smelter/smelter_iron_ore") }, MC('iron_ore'), CR('crushed_iron_ore'))
@@ -1581,9 +1583,9 @@ function alloys(event) {
     event.recipes.createMixing(Fluid.of(TC('molten_rose_gold'), 4), [Fluid.of(TC('molten_copper'), 4), Fluid.of(TC('molten_gold'), 4)]).processingTime(1)
 
     event.recipes.thermal.smelter([KJ("invar_compound"), KJ("invar_compound")], [TE("nickel_ingot"), MC("iron_ingot")])
-    event.recipes.thermal.smelter(CR("brass_ingot", 2), [CR("copper_ingot"), CR("zinc_ingot")])
-    event.recipes.thermal.smelter(TC("rose_gold_ingot", 2), [CR("copper_ingot"), MC("gold_ingot")])
-    event.recipes.thermal.smelter(TE("constantan_ingot", 2), [CR("copper_ingot"), TE("nickel_ingot")])
+    event.recipes.thermal.smelter(CR("brass_ingot", 2), [MC("copper_ingot"), CR("zinc_ingot")])
+    event.recipes.thermal.smelter(TC("rose_gold_ingot", 2), [MC("copper_ingot"), MC("gold_ingot")])
+    event.recipes.thermal.smelter(TE("constantan_ingot", 2), [MC("copper_ingot"), TE("nickel_ingot")])
 
 }
 
@@ -1767,7 +1769,7 @@ function copperMachine(event) {
             event.stonecutting(Item.of(id, amount), 'kubejs:copper_machine')
     }
 
-    copper_machine('create:copper_backtank', 1, CR("copper_block"))
+    copper_machine('create:copper_backtank', 1, MC("copper_block"))
     copper_machine('create:portable_fluid_interface', 2)
     copper_machine('create:spout', 1, MC('hopper'))
     copper_machine('thermal:upgrade_augment_1', 1, MC('redstone'))
@@ -2285,9 +2287,9 @@ function circuits(event) {
     //event.recipes.createCompacting([PR_C('red_ingot')], [CR('copper_ingot'), Fluid.of(TE("redstone"), 250)])
     //event.recipes.createCompacting([PR_C('red_ingot')], [CR('copper_ingot'), MC("redstone"), MC("redstone"), MC("redstone"), MC("redstone")])
     //event.recipes.thermal.smelter(PR_C('red_ingot'), [CR("copper_ingot"), MC("redstone")])
-    event.recipes.createCompacting([BP('red_alloy_ingot')], [CR('copper_ingot'), Fluid.of(TE("redstone"), 250)])
-    event.recipes.createCompacting([BP('red_alloy_ingot')], [CR('copper_ingot'), MC("redstone"), MC("redstone"), MC("redstone"), MC("redstone")])
-    event.recipes.thermal.smelter(BP('red_alloy_ingot'), [CR("copper_ingot"), MC("redstone")])
+    event.recipes.createCompacting([BP('red_alloy_ingot')], [MC('copper_ingot'), Fluid.of(TE("redstone"), 250)])
+    event.recipes.createCompacting([BP('red_alloy_ingot')], [MC('copper_ingot'), MC("redstone"), MC("redstone"), MC("redstone"), MC("redstone")])
+    event.recipes.thermal.smelter(BP('red_alloy_ingot'), [MC("copper_ingot"), MC("redstone")])
         //event.shapeless(PR_C('platformed_plate'), [PR_C('plate'), PR_T('red_alloy_wire'), CR("andesite_alloy")])
         //More Porject Red removing
 
@@ -2868,7 +2870,7 @@ function trading(event) {
 
 // Program
 
-eonEvent('player.chat', function(event) {
+onEvent('player.chat', function(event) {
     // Check if message equals creeper, ignoring case
 
     if (event.message.startsWith('!clear')) {
