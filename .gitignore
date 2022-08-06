@@ -5,3 +5,4 @@ backups/*
 local/*
 logs/*
 saves/*
+minecraftinstance.json

@@ -29,6 +29,7 @@ let AC = (id, x) => MOD("aquaculture", id, x)
 let PP = (id, x) => MOD("prettypipes", id, x)
 let OC = (id, x) => MOD("occultism", id, x)
 let DD = (id, x) => MOD("darkerdepths", id, x)
+let FA = (id, x) => MOD("forbidden_arcanus", id, x)
     //Commented out mods that are not updated 08/05/2022
 
 let colors = ['white', 'orange', 'magenta', 'light_blue', 'lime', 'pink', 'purple', 'light_gray', 'gray', 'cyan', 'brown', 'green', 'blue', 'red', 'black', 'yellow']
